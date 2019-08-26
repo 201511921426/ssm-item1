@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.items.mapper.ProjectMapper">
+
+  <resultMap id="projectMap" type="Project">
+    <id property="proid" column="proid"/>
+    <result property="menu2Id" column="menu2_id"/>
+    <result property="menu3Id" column="menu3_id"/>
+    <result property="cateId" column="cate_id"/>
+      <result property="createTime" column="create_time"/>
+      <result property="isDelete" column="is_delete"/>
+      <result property="money" column="money"/>
+      <result property="proName" column="pro_name"/>
+      <result property="tel" column="tel"/>
+  </resultMap>
+
+  <select id="findAll" resultMap="projectMap">
+      select *
+      from project
+      limit 0,1
+  </select>
+</mapper>
