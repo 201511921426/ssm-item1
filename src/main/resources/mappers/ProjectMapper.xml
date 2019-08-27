@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vip.items.mapper.ProjectMapper">
-
-  <resultMap id="projectMap" type="Project">
-    <id property="proid" column="proid"/>
-    <result property="menu2Id" column="menu2_id"/>
-    <result property="menu3Id" column="menu3_id"/>
+  <resultMap id="BaseResultMap" type="Project">
+    <id column="proid"  property="proid" />
+    <result column="pro_name"  property="proName" />
+    <result column="create_time" property="createTime" />
+    <result column="pro_com" property="proCom" />
+    <result column="pro_request" property="proRequest" />
+    <result column="tel"  property="tel" />
+    <result column="time"  property="time" />
+    <result column="menu2_id"  property="menu2Id" />
+    <result column="menu3_id"  property="menu3Id" />
+    <result column="is_delete"  property="isDelete" />
     <result property="cateId" column="cate_id"/>
-      <result property="createTime" column="create_time"/>
-      <result property="isDelete" column="is_delete"/>
-      <result property="money" column="money"/>
-      <result property="proName" column="pro_name"/>
-      <result property="tel" column="tel"/>
   </resultMap>
 
-  <select id="findAll" resultMap="projectMap">
-      select *
-      from project
-      limit 0,1
+  <select id="findAll" resultMap="BaseResultMap">
+    select p.proid,p.pro_name,p.create_time,p.pro_com,p.tel,p.cate_id,p.menu2_id,p.menu3_id
+    from project p
+    where p.cate_id=#{cateId} and p.menu2_id=#{menu2Id} and p.menu3_id=#{menu3Id}
+  </select>
+
+  <select id="findDisplay" resultMap="BaseResultMap">
+    select *
+    from project
   </select>
 </mapper>

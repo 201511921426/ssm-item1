@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vip.items.mapper.CategoryMapper">
-  <resultMap id="cateMap" type="Category">
+  <resultMap id="cateMap" type="com.vip.items.domain.vo.CategoryVo">
     <id property="cateId" column="cate_id"/>
     <result property="cateName" column="cate_name"/>
+    <collection property="projectList" resultMap="com.vip.items.mapper.ProjectMapper.BaseResultMap">
+    </collection>
   </resultMap>
 
+    <resultMap id="cates" type="com.vip.items.domain.vo.CategoryVo">
+        <id property="cateId" column="cate_id"/>
+        <result property="cateName" column="cate_name"/>
+        <collection property="projectList" resultMap="com.vip.items.mapper.ProjectMapper.BaseResultMap"></collection>
+    </resultMap>
   <select id="findAll" resultMap="cateMap">
     select c.cate_id,c.cate_name
     from category c
   </select>
+  <select id="findProjevt" resultMap="cates">
+      select c.cate_id,c.cate_name, p.proid,p.pro_name,p.create_time,p.pro_com,p.tel,p.menu2_id,p.menu3_id
+      from category c
+      right join project p on c.cate_id = p.cate_id
+  </select>
+
 </mapper>

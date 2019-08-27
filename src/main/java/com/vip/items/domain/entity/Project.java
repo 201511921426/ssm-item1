@@ -16,14 +16,29 @@ public class Project {
     private String proName;
 
     /**
-    * 预算
-    */
-    private String money;
-
-    /**
     * 创建时间
     */
     private Date createTime;
+
+    /**
+    * 发布公司
+    */
+    private String proCom;
+
+    /**
+    * 项目要求
+    */
+    private String proRequest;
+
+    /**
+    * 联系电话
+    */
+    private String tel;
+
+    /**
+    * 要求时间
+    */
+    private String time;
 
     /**
     * 一级分类id
@@ -41,12 +56,9 @@ public class Project {
     private Integer menu3Id;
 
     /**
-    * 联系电话
-    */
-    private String tel;
-
-    /**
     * 状态,0 存在,1 删除
     */
     private Integer isDelete;
+
+
 }

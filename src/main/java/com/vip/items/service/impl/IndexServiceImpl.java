@@ -1,6 +1,7 @@
 package com.vip.items.service.impl;
 
 import com.vip.items.domain.entity.*;
+import com.vip.items.domain.vo.CategoryVo;
 import com.vip.items.mapper.*;
 import com.vip.items.service.IndexService;
 import com.vip.items.utils.Bean;
@@ -38,9 +39,9 @@ public class IndexServiceImpl implements IndexService {
 		}
 
 		@Override
-		public Bean find3(int page ,int size) {
+		public Bean find3(int cateId,int menu2Id,int menu3Id) {
 				Bean bean = new Bean();
-				List<Project> all = projectMapper.findAll(page,size);
+				List<Project> all = projectMapper.findAll(cateId,menu2Id,menu3Id);
 			bean.setProjectMappers(all);
 			return bean;
 		}
@@ -60,4 +61,22 @@ public class IndexServiceImpl implements IndexService {
 				bean.setSubMenu3s(all);
 				return bean;
 		}
+
+		@Override
+		public Bean find6() {
+				Bean bean = new Bean();
+				List<Project> display = projectMapper.findDisplay();
+				bean.setProjectMappers(display);
+				return bean;
+		}
+
+		@Override
+		public Bean find7() {
+				Bean bean = new Bean();
+				List<Category> projevt = categoryMapper.findProjevt();
+				bean.setCategorylist(projevt);
+				return bean;
+		}
+
+
 }

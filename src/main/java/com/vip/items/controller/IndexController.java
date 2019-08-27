@@ -18,7 +18,7 @@ public class IndexController {
 		IndexService indexService;
 
 		@GetMapping("/nav")
-		public Result find1(){
+		public Result find1() {
 				try {
 						Bean finds = indexService.finds();
 						return Result.success(finds);
@@ -29,7 +29,7 @@ public class IndexController {
 		}
 
 		@GetMapping("/cate")
-		public Result find2(){
+		public Result find2() {
 				try {
 						Bean finds = indexService.find2();
 						return Result.success(finds);
@@ -40,9 +40,9 @@ public class IndexController {
 		}
 
 		@GetMapping("/pro")
-		public Result find3(int page,int size){
+		public Result find3(int cateId, int menu2Id, int menu3Id) {
 				try {
-						Bean finds = indexService.find3(page,size);
+						Bean finds = indexService.find3(cateId, menu2Id, menu3Id);
 						return Result.success(finds);
 				} catch (Exception e) {
 						log.error(e.getMessage());
@@ -51,7 +51,7 @@ public class IndexController {
 		}
 
 		@GetMapping("/sub2")
-		public Result find4(){
+		public Result find4() {
 				try {
 						Bean finds = indexService.find4();
 						return Result.success(finds);
@@ -60,8 +60,9 @@ public class IndexController {
 				}
 				return Result.error();
 		}
+
 		@GetMapping("/sub3")
-		public Result find5(){
+		public Result find5() {
 				try {
 						Bean finds = indexService.find5();
 						return Result.success(finds);
@@ -70,5 +71,27 @@ public class IndexController {
 				}
 				return Result.error();
 		}
+
+		@GetMapping("/Display")
+		public Result find6() {
+				try {
+						Bean bean = indexService.find6();
+						return Result.success(bean);
+				} catch (Exception e) {
+						log.error(e.getMessage());
+				}
+				return Result.error();
+		}
+
+		@GetMapping("/finds")
+		public Result find7() {
+	try{
+			Bean bean = indexService.find7();
+			return Result.success(bean);
+		} catch(Exception e){
+				log.error(e.getMessage());
+		}
+				return Result.error();
+   }
 
 }
