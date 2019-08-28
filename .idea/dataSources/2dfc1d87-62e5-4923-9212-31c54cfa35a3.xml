@@ -1132,7 +1132,7 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="286" parent="6" name="category"/>
-    <table id="287" parent="6" name="collection"/>
+    <table id="287" parent="6" name="collection1"/>
     <table id="288" parent="6" name="collection2"/>
     <table id="289" parent="6" name="grades"/>
     <table id="290" parent="6" name="navigation"/>

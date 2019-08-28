@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.vip.items.mapper.ProjectMapper">
-  <resultMap id="BaseResultMap" type="Project">
+  <resultMap id="BaseResultMap" type="com.vip.items.domain.vo.ProjectVo">
     <id column="proid"  property="proid" />
     <result column="pro_name"  property="proName" />
     <result column="create_time" property="createTime" />
@@ -13,6 +13,8 @@
     <result column="menu3_id"  property="menu3Id" />
     <result column="is_delete"  property="isDelete" />
     <result property="cateId" column="cate_id"/>
+    <collection property="collection1List" resultMap="com.vip.items.mapper.Collection1Mapper.collMap">
+    </collection>
   </resultMap>
 
   <select id="findAll" resultMap="BaseResultMap">

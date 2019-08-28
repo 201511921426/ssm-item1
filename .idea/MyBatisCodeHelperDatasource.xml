@@ -36,6 +36,16 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="items:collection1">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="cid" />
+                  <option name="javaModelName" value="Collection1" />
+                  <option name="moduleName" value="ssm-item" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="items:navigation">
               <value>
                 <TableGenerateConfig>

@@ -93,5 +93,37 @@ public class IndexController {
 		}
 				return Result.error();
    }
+   @GetMapping("/des")
+	 public Result find8(int cateId,int menu2Id,int menu3Id) {
+			 try{
+					 Bean bean = indexService.find8(cateId,menu2Id,menu3Id);
+					 return Result.success(bean);
+			 } catch(Exception e){
+					 log.error(e.getMessage());
+			 }
+			 return Result.error();
+	 }
+
+	 @GetMapping("/add")
+		public Result find9(int cid,int proid,int isDelete){
+			 try {
+					 Bean bean = indexService.find9(cid, proid, isDelete);
+					 return Result.success(bean);
+			 } catch (Exception e) {
+					 log.error(e.getMessage());
+			 }
+			 return Result.error();
+	 }
+
+		@GetMapping("/update")
+		public Result find10(int cid,int isDelete){
+				try {
+						Bean bean = indexService.find10(cid,isDelete);
+						return Result.success(bean);
+				} catch (Exception e) {
+						log.error(e.getMessage());
+				}
+				return Result.error();
+		}
 
 }

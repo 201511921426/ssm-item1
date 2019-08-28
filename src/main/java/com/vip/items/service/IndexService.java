@@ -10,5 +10,9 @@ public interface IndexService {
 		Bean find5();
 		Bean find6();
 		Bean find7();
+		Bean find8(int cateId,int menu2Id,int menu3Id);
+		Bean find9(int cid,int proid,int isDelete);
+		Bean find10(int cid,int isDelete);
+
 
 }

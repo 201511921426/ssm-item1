@@ -14,6 +14,7 @@ public class Bean implements Serializable {
 		List<Category> categorylist;
 		List<SubMenu2> subMenu2s;
 		List<SubMenu3> subMenu3s;
+		int collection;
 
 
 }

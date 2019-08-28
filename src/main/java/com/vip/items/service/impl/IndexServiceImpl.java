@@ -22,6 +22,8 @@ public class IndexServiceImpl implements IndexService {
 		SubMenu2Mapper subMenu2Mapper;
 		@Resource
 		SubMenu3Mapper subMenu3Mapper;
+		@Resource
+		Collection1Mapper collection1Mapper;
 		@Override
 		public Bean finds() {
 				Bean bean = new Bean();
@@ -75,6 +77,37 @@ public class IndexServiceImpl implements IndexService {
 				Bean bean = new Bean();
 				List<Category> projevt = categoryMapper.findProjevt();
 				bean.setCategorylist(projevt);
+				return bean;
+		}
+
+		@Override
+		public Bean find8(int cateId,int menu2Id,int menu3Id) {
+				Bean bean = new Bean();
+				List<Category> project = categoryMapper.findProject(cateId, menu2Id, menu3Id);
+				bean.setCategorylist(project);
+				return bean;
+		}
+
+		@Override
+		public Bean find9(int cid, int proid, int isDelete) {
+				Bean bean = new Bean();
+				Collection1 byId = collection1Mapper.findById(cid);
+				if (byId!=null){
+						int update = collection1Mapper.update(cid, isDelete);
+						bean.setCollection(update);
+						return bean;
+				}else {
+						int row = collection1Mapper.add(cid, proid, isDelete);
+						bean.setCollection(row);
+						return bean;
+				}
+		}
+
+		@Override
+		public Bean find10(int cid,int isDelete) {
+				Bean bean = new Bean();
+				int row = collection1Mapper.update(cid,isDelete);
+				bean.setCollection(row);
 				return bean;
 		}
 
